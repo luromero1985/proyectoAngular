@@ -9,12 +9,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let pie of cackes" [ngClass]="{'clearance': pie.clearance}">
             <td><img [src]="pie.image" [alt]="pie.name"></td>
             <td>{{pie.name}}</td>
             <td>{{pie.description}}</td>
-            <td>{{pie.price}}</td>
-            <td>{{pie.stock}}</td>
+            <td>{{pie.price | currency}}</td> 
+            <td><span class="badge rounded-pill text-bg-light" *ngIf="pie.stock==0">Sin Stock</span></td>
         </tr>
     </tbody>
 </table>
