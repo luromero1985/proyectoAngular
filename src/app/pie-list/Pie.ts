@@ -7,4 +7,5 @@ export interface Pie{
     stock: number,
     image: String,
     clearance: Boolean,
+    quantity: number,
 }

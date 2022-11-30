@@ -1,3 +1,4 @@
+import { KeyValue } from '@angular/common';
 import { Component } from '@angular/core';
 import { Pie } from './pie';
 
@@ -15,6 +16,7 @@ cackes: Pie [] =[
   stock: 12,
   image:"assets/images/lemonPie.jpg",
   clearance: false,
+  quantity:0,
 }, 
 {
 name:"Torta Óreo",
@@ -23,6 +25,7 @@ price: 700,
 stock: 8,
 image:"assets/images/oreo.jpg",
 clearance: false,
+quantity:0,
 }, 
 
 {
@@ -32,6 +35,7 @@ clearance: false,
   stock: 5,
   image:"assets/images/manzana.jpg",
   clearance: true,
+  quantity:0,
   },
   {
   name:"Torta tipo Balcarce",
@@ -40,12 +44,27 @@ clearance: false,
   stock: 0,
   image:"assets/images/balcarce.jpg",
   clearance: false,
+  quantity:0,
   },
 
 ];
-
+  
 constructor(){}
 ngOnInit(): void {
 
 }
+
+upQuantity(pie: Pie): void{
+  if(pie.quantity<pie.stock){
+  pie.quantity++;  
+  }
+
 }
+
+downQuantity(pie: Pie): void{
+  if(pie.quantity>0){
+    pie.quantity--;
+  }
+}
+  
+       }
