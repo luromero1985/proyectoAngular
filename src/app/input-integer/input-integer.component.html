@@ -1,0 +1,11 @@
+<div class="input-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="downQuantity()">-</button>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="quantity" (keyup)="changeQuantity($event)">
+        <div>
+            <button class="btn btn-outline-secondary" (click)="upQuantity()">+</button>
+        </div>
+    </div>
+</div>

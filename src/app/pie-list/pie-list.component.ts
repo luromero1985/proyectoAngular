@@ -1,5 +1,6 @@
 import { KeyValue } from '@angular/common';
 import { Component } from '@angular/core';
+import { PieCartService } from '../pie-cart.service';
 import { Pie } from './Pie'
 
 
@@ -47,25 +48,25 @@ export class PieListComponent {
       clearance: false,
       quantity: 0,
     },
-
   ];
 
-  constructor() { }
+
+  constructor(private cart: PieCartService) { 
+  }
+
   ngOnInit(): void {
-
   }
 
-  upQuantity(pie: Pie): void {
-    if (pie.quantity < pie.stock) {
-      pie.quantity++;
-    }
-
+  addToCart(pie: Pie):void{
+    //agrego al cart
+     this.cart.addToCart(pie);
+     //le saco al stock la cantidad comparada
+     pie.stock -= pie.quantity;
+     //reinicio a cero para la siguiente compra
+     pie.quantity = 0;
   }
-
-  downQuantity(pie: Pie): void {
-    if (pie.quantity > 0) {
-      pie.quantity--;
-    }
-  }
+maxReached (m: String) {
+  alert(m);
+}
 
 }

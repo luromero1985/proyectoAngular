@@ -15,18 +15,11 @@
             <td><img [src]="pie.image" [alt]="pie.name"></td>
             <td>{{pie.name}}</td>
             <td>{{pie.description}}</td>
-            <td>{{pie.price | currency}}</td> 
+            <td>{{pie.price | currency}}</td>
             <td><span class="badge rounded-pill text-bg-light" *ngIf="pie.stock==0">Sin Stock</span></td>
             <td>
-                <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" (click)="downQuantity(pie)">-</button>
-                <input 
-                type="text" 
-                class="form-control"
-                [(ngModel)]="pie.quantity"
-                >
-                <button class="btn btn-outline-secondary" (click)="upQuantity(pie)">+</button>
-            </div>
+                <app-input-integer [(quantity)]="pie.quantity" [max]="pie.stock" *ngIf="pie.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                <button class="btn btn-outline-secondary mt-2" (click)="addToCart(pie)">Comprar</button>
             </td>
         </tr>
     </tbody>
