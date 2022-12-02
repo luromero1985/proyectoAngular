@@ -10,19 +10,19 @@ export class PieCartService {
 
   /*lista de productos que iran al carrito*/
   //convierto la variable observada en privada para poder reutilizar su nombre
- private _cartList: Pie[] = [];
- 
+  private _cartList: Pie[] = [];
+
   cartList: BehaviorSubject<Pie[]> = new BehaviorSubject<Pie[]>([]);
 
   constructor() { }
 
   addToCart(pie: Pie) {
     /*controlo que lo que me pase el usuario esté disponible (uso find para buscar)*/
-    let item= this._cartList.find((v1) => v1.name == pie.name);
+    let item = this._cartList.find((v1) => v1.name == pie.name);
     if (!item) {
       /*agrego elementos al carrito*/
-      this._cartList.push({... pie}); //los tres puntos hace que traiga todo lo que tiene adentro pie, clona el objeto
-    } else{
+      this._cartList.push({ ...pie }); //los tres puntos hace que traiga todo lo que tiene adentro pie, clona el objeto
+    } else {
       item.quantity += pie.quantity;
     }
 

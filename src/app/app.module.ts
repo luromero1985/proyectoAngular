@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PieListComponent } from './pie-list/pie-list.component';
 
+import{ HttpClientModule} from '@angular/common/http';
+
 import{FormsModule} from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { CositasdulcesAboutComponent } from './cositasdulces-about/cositasdulces-about.component';
@@ -20,11 +22,14 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
     CositasdulcesCackesComponent,
     InputIntegerComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
